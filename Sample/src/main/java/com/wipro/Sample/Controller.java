@@ -28,22 +28,24 @@ public class Controller {
 	 @ApiOperation(value = "View a list of available products",response = Iterable.class)
    	@GetMapping("/get")
 	public List<Product> getAll(){
-		 if(repository.findAll()==null)
-	       	logger.warn("empty list");
-		 logger.info("list of products"+repository.findAll());
+		 if(repository.findAll()!=null)
+	     	 logger.info("list of products"+repository.findAll());
+		 else
+			 logger.warn("empty list");
 		 return repository.findAll();
 	}
 	 @ApiOperation(value = "Add a product")
 	@PostMapping("/post")
 	public  void saveproduct(@RequestBody Product product) {
 		 logger.trace("save method accessed");
-		System.out.println(product);
 		repository.save(product);
 	}
 	 @ApiOperation(value = "Delete a product")
 	@DeleteMapping("/deletebyid/{id}")
 	 public void deleteProduct(@PathVariable(name="id")Long id){
-		 if(repository.getOne(id)==null)
+		 if(repository.getOne(id)!=null)
+			 logger.warn("deleting product");
+		 else
 		    logger.error("id doesn't exists");
 	  repository.deleteById(id);
 	 }
@@ -52,15 +54,16 @@ public class Controller {
 	 public void updateProduct(@RequestBody Product product,@PathVariable(name="id")Long id){
 	  logger.trace("update method accessed");
 	  Product p1=repository.getOne(id);
-	  if(p1 != null){
-		  logger.info("updating to be done");
-	      p1.setBrand(product.getBrand());
-	      p1.setName(product.getName());
-	      p1.setMadein(product.getMadein());
-	      p1.setPrice(product.getPrice());
-	      repository.save(p1);
-	  }
-	  else
+	  if(p1 == null){
 		  logger.error("product with given id not found");;
-	 }
+	  }
+	  else {
+		  logger.info("updating to be done");
+      p1.setBrand(product.getBrand());
+      p1.setName(product.getName());
+      p1.setMadein(product.getMadein());
+      p1.setPrice(product.getPrice());
+      repository.save(p1);
+	  }
+ }
 }

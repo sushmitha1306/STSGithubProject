@@ -13,8 +13,11 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Sample</name>
 	<description>Demo project for Spring Boot</description>
-
-	<properties>
+<properties>
+  <sonar.projectKey>sushmitha1306_STSGithubProject</sonar.projectKey>
+  <sonar.organization>sushmitha1306</sonar.organization>
+  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+  <sonar.login>7d2bae9412aa9f6d078636596383f0c6587db72e</sonar.login>
 		<java.version>1.8</java.version>
 	</properties>
 
@@ -71,14 +74,16 @@
 			</exclusions>
 		</dependency>
 	</dependencies>
+	
 
 	<build>
+	
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			
 		</plugins>
 	</build>
-
 </project>

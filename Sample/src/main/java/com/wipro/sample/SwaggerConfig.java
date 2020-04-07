@@ -1,4 +1,4 @@
-package com.wipro.Sample;
+package com.wipro.sample;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

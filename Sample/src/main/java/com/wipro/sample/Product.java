@@ -1,4 +1,4 @@
-package com.wipro.Sample;
+package com.wipro.sample;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -1,4 +1,4 @@
-package com.wipro.Sample;
+package com.wipro.sample;
 
 import java.util.Optional;
 

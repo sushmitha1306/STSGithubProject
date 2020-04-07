@@ -1,4 +1,4 @@
-package com.wipro.Sample;
+package com.wipro.sample;
 
 import java.util.Arrays;
 
@@ -22,20 +22,14 @@ public class ConsumeController {
 	RestTemplate restTemplate;
 	@GetMapping("/template/products")
 	public Product[] getAll(){
-		Product[] list=restTemplate.getForObject("http://localhost:8080/get", Product[].class);
-		return list;
+		return restTemplate.getForObject("http://localhost:8080/get", Product[].class);
+		
 	}
-//	@RequestMapping("/template/post")
-//	public void create() {
-//		Product pr=new Product("Mobile","Motto","Japan",15000);
-//		restTemplate.postForObject("http://localhost:8080/template/products",pr, Product.class);
-//	}
-	
 	@PostMapping(value = "/template/products")
 	   public String createProducts(@RequestBody Product product) {
 	      HttpHeaders headers = new HttpHeaders();
 	      headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-	      HttpEntity<Product> entity = new HttpEntity<Product>(product,headers);
+	      HttpEntity<Product> entity = new HttpEntity<>(product,headers);
 	      
 	      return restTemplate.exchange(
 	         "http://localhost:8080/post", HttpMethod.POST, entity, String.class).getBody();
@@ -44,7 +38,7 @@ public class ConsumeController {
 	   public String deleteProduct(@PathVariable("id") String id) {
 	      HttpHeaders headers = new HttpHeaders();
 	      headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-	      HttpEntity<Product> entity = new HttpEntity<Product>(headers);
+	      HttpEntity<Product> entity = new HttpEntity<>(headers);
 	      
 	      return restTemplate.exchange(
 	         "http://localhost:8080/deletebyid/"+id, HttpMethod.DELETE, entity, String.class).getBody();

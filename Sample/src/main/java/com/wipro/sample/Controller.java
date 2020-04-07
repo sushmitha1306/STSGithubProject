@@ -1,6 +1,7 @@
-package com.wipro.Sample;
+package com.wipro.sample;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@Api(value="products", description="Operations on products")
+@Api(value="Operations on products")
 public class Controller {
 
 	@Autowired
@@ -40,7 +41,7 @@ public class Controller {
 	 @ApiOperation(value = "Delete a product")
 	@DeleteMapping("/deletebyid/{id}")
 	 public void deleteProduct(@PathVariable(name="id")Long id){
-		 if(repository.findById(id).isPresent()!=false)
+		 if(repository.findById(id).isPresent())
 			 logger.warn("deleting product");
 		 else
 		    logger.error("id doesn't exists");
@@ -50,11 +51,12 @@ public class Controller {
 	@PutMapping("/updatebyid/{id}")
 	 public void updateProduct(@RequestBody Product product,@PathVariable(name="id")Long id){
 	  logger.trace("update method accessed");
-	  Product p1=repository.getOne(id);
-	  if(p1 == null){
+	  Optional<Product> p2=repository.findById(id);
+	  if(!p2.isPresent()){
 		  logger.error("product with given id not found");;
 	  }
 	  else {
+		  Product p1=p2.get();
 		  logger.info("updating to be done");
       p1.setBrand(product.getBrand());
       p1.setName(product.getName());

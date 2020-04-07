@@ -55,11 +55,14 @@ public class Controller {
 	@PutMapping("/updatebyid/{id}")
 	 public void updateProduct(@RequestBody ProductDTO product,@PathVariable(name="id")Long id){
 	  logger.trace("update method accessed");
+	  Product p1;
 	  Product prod=modelMapper.map(product, Product.class);
 	  Optional<Product> p2=repository.findById(id);
-	  
-	    Product p1=p2.get();
-		  logger.info("updating to be done");
+	  if(p2.isPresent()) {
+	       p2.get();
+	  }
+	  p1=p2.get();
+      logger.info("updating to be done");
       p1.setBrand(prod.getBrand());
       p1.setName(prod.getName());
       p1.setMadein(prod.getMadein());

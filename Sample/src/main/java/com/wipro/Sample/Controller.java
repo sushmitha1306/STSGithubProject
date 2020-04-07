@@ -28,10 +28,7 @@ public class Controller {
 	 @ApiOperation(value = "View a list of available products",response = Iterable.class)
    	@GetMapping("/get")
 	public List<Product> getAll(){
-		 if(repository.findAll()!=null)
-	     	 logger.info("list of products"+repository.findAll());
-		 else
-			 logger.warn("empty list");
+     	 logger.info("list of products method");
 		 return repository.findAll();
 	}
 	 @ApiOperation(value = "Add a product")
@@ -43,7 +40,7 @@ public class Controller {
 	 @ApiOperation(value = "Delete a product")
 	@DeleteMapping("/deletebyid/{id}")
 	 public void deleteProduct(@PathVariable(name="id")Long id){
-		 if(repository.getOne(id)!=null)
+		 if(repository.findById(id)!=null)
 			 logger.warn("deleting product");
 		 else
 		    logger.error("id doesn't exists");

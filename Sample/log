@@ -267,3 +267,31 @@
 2020-Apr-07 15:27:28.464 INFO  [SpringContextShutdownHook] o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
 2020-Apr-07 15:27:28.483 INFO  [SpringContextShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2020-Apr-07 15:27:28.494 INFO  [SpringContextShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.
+2020-Apr-07 15:29:35.004 INFO  [main] c.w.S.SampleApplicationTests - Starting SampleApplicationTests on PC2016110702IRN with PID 4920 (started by 7HP_SP1 in C:\Users\7HP_SP1\git\STSGithubProject\Sample)
+2020-Apr-07 15:29:35.007 DEBUG [main] c.w.S.SampleApplicationTests - Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+2020-Apr-07 15:29:35.010 INFO  [main] c.w.S.SampleApplicationTests - No active profile set, falling back to default profiles: default
+2020-Apr-07 15:29:39.732 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-Apr-07 15:29:39.904 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 138ms. Found 1 JPA repository interfaces.
+2020-Apr-07 15:29:41.448 INFO  [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-Apr-07 15:29:42.100 INFO  [main] o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-Apr-07 15:29:42.403 INFO  [main] o.h.Version - HHH000412: Hibernate Core {5.4.10.Final}
+2020-Apr-07 15:29:42.890 INFO  [main] o.h.a.c.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-Apr-07 15:29:43.461 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Starting...
+2020-Apr-07 15:29:44.192 INFO  [main] c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+2020-Apr-07 15:29:44.254 INFO  [main] o.h.d.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-Apr-07 15:29:46.721 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-Apr-07 15:29:46.749 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-Apr-07 15:29:48.756 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-Apr-07 15:29:50.257 INFO  [main] o.s.b.a.e.w.EndpointLinksResolver - Exposing 14 endpoint(s) beneath base path '/actuator'
+2020-Apr-07 15:29:52.120 INFO  [main] o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-Apr-07 15:29:53.257 INFO  [main] s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2020-Apr-07 15:29:53.341 INFO  [main] s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2020-Apr-07 15:29:53.411 INFO  [main] s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2020-Apr-07 15:29:53.900 INFO  [main] s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: deleteProductUsingDELETE_1
+2020-Apr-07 15:29:53.928 INFO  [main] s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: getAllUsingGET_1
+2020-Apr-07 15:29:54.015 INFO  [main] c.w.S.SampleApplicationTests - Started SampleApplicationTests in 20.422 seconds (JVM running for 23.812)
+2020-Apr-07 15:29:54.416 INFO  [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-Apr-07 15:29:54.423 INFO  [SpringContextShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-Apr-07 15:29:54.424 INFO  [SpringContextShutdownHook] o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2020-Apr-07 15:29:54.441 INFO  [SpringContextShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-Apr-07 15:29:54.448 INFO  [SpringContextShutdownHook] c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed.

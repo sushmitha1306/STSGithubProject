@@ -34,15 +34,5 @@ public class ConsumeController {
 	      return restTemplate.exchange(
 	         "http://localhost:8080/post", HttpMethod.POST, entity, String.class).getBody();
 	   }
-	@DeleteMapping(value = "/template/products/{id}")
-	   public String deleteProduct(@PathVariable("id") String id) {
-	      HttpHeaders headers = new HttpHeaders();
-	      headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-	      HttpEntity<Product> entity = new HttpEntity<>(headers);
-	      
-	      return restTemplate.exchange(
-	         "http://localhost:8080/deletebyid/"+id, HttpMethod.DELETE, entity, String.class).getBody();
-	   }
-	
 	
 }

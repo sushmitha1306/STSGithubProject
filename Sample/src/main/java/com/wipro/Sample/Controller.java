@@ -40,7 +40,7 @@ public class Controller {
 	 @ApiOperation(value = "Delete a product")
 	@DeleteMapping("/deletebyid/{id}")
 	 public void deleteProduct(@PathVariable(name="id")Long id){
-		 if(repository.findById(id)!=null)
+		 if(repository.findById(id).isPresent()!=false)
 			 logger.warn("deleting product");
 		 else
 		    logger.error("id doesn't exists");

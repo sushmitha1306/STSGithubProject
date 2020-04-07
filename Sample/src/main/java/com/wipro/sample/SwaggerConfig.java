@@ -15,6 +15,14 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfig {
 
+	 ApiInfo apiInfo = new ApiInfo(
+             "Products List Swagger Integration",
+             "Spring Boot REST API for Products",
+             "1.0",
+             "Terms of service",
+             new Contact("John Thompson", "https://springframework.guru/about/", "john@springfrmework.guru"),
+            "Apache License Version 2.0",
+             "https://www.apache.org/licenses/LICENSE-2.0");
 	 @Bean
 	    public Docket productApi() {
 	        return new Docket(DocumentationType.SWAGGER_2)
@@ -22,18 +30,7 @@ public class SwaggerConfig {
 	                .apis(RequestHandlerSelectors.basePackage("com.wipro.Sample"))
 	                .paths(PathSelectors.any())
 	                .build()
-	                .apiInfo(metaData());
+	                .apiInfo(apiInfo);
 	    }
 	 
-	 private ApiInfo metaData() {
-	        ApiInfo apiInfo = new ApiInfo(
-	                "Products List Swagger Integration",
-	                "Spring Boot REST API for Products",
-	                "1.0",
-	                "Terms of service",
-	                new Contact("John Thompson", "https://springframework.guru/about/", "john@springfrmework.guru"),
-	               "Apache License Version 2.0",
-	                "https://www.apache.org/licenses/LICENSE-2.0");
-	        return apiInfo;
-	    }
 }

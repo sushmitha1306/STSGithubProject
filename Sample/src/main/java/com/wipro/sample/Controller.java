@@ -3,6 +3,7 @@ package com.wipro.sample;
 import java.util.List;
 import java.util.Optional;
 
+import org.modelmapper.ModelMapper;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -24,6 +25,8 @@ public class Controller {
 	@Autowired
 	ProductRepository repository;
 	
+	@Autowired
+    private ModelMapper modelMapper;
 	Logger logger=(Logger) LoggerFactory.getLogger(Controller.class);
 
 	 @ApiOperation(value = "View a list of available products",response = Iterable.class)
@@ -34,9 +37,10 @@ public class Controller {
 	}
 	 @ApiOperation(value = "Add a product")
 	@PostMapping("/post")
-	public  void saveproduct(@RequestBody Product product) {
+	public  void saveproduct(@RequestBody ProductDTO product) {
 		 logger.trace("save method accessed");
-		repository.save(product);
+		 Product prod=modelMapper.map(product, Product.class);
+		repository.save(prod);
 	}
 	 @ApiOperation(value = "Delete a product")
 	@DeleteMapping("/deletebyid/{id}")
@@ -49,20 +53,18 @@ public class Controller {
 	 }
 	 @ApiOperation(value = "Update a product")
 	@PutMapping("/updatebyid/{id}")
-	 public void updateProduct(@RequestBody Product product,@PathVariable(name="id")Long id){
+	 public void updateProduct(@RequestBody ProductDTO product,@PathVariable(name="id")Long id){
 	  logger.trace("update method accessed");
+	  Product prod=modelMapper.map(product, Product.class);
 	  Optional<Product> p2=repository.findById(id);
-	  if(!p2.isPresent()){
-		  logger.error("product with given id not found");;
-	  }
-	  else {
-		  Product p1=p2.get();
+	  
+	    Product p1=p2.get();
 		  logger.info("updating to be done");
-      p1.setBrand(product.getBrand());
-      p1.setName(product.getName());
-      p1.setMadein(product.getMadein());
-      p1.setPrice(product.getPrice());
+      p1.setBrand(prod.getBrand());
+      p1.setName(prod.getName());
+      p1.setMadein(prod.getMadein());
+      p1.setPrice(prod.getPrice());
       repository.save(p1);
-	  }
+	  
  }
 }

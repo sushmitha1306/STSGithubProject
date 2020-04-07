@@ -26,10 +26,10 @@ public class ConsumeController {
 		
 	}
 	@PostMapping(value = "/template/products")
-	   public String createProducts(@RequestBody Product product) {
+	   public String createProducts(@RequestBody ProductDTO product) {
 	      HttpHeaders headers = new HttpHeaders();
 	      headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-	      HttpEntity<Product> entity = new HttpEntity<>(product,headers);
+	      HttpEntity<ProductDTO> entity = new HttpEntity<>(product,headers);
 	      
 	      return restTemplate.exchange(
 	         "http://localhost:8080/post", HttpMethod.POST, entity, String.class).getBody();

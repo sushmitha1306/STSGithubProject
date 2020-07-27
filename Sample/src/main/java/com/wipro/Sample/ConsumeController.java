@@ -27,11 +27,6 @@ public class ConsumeController {
 		Product[] list=restTemplate.getForObject("http://localhost:8080/get", Product[].class);
 		return list;
 	}
-//	@RequestMapping("/template/post")
-//	public void create() {
-//		Product pr=new Product("Mobile","Motto","Japan",15000);
-//		restTemplate.postForObject("http://localhost:8080/template/products",pr, Product.class);
-//	}
 	
 	@PostMapping(value = "/template/products")
 	   public String createProducts(@RequestBody Product product) {
